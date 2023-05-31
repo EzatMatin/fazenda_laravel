@@ -1,0 +1,99 @@
+@media (width:540px){
+    .bio-image{
+        width: 30%;
+    }
+
+    .content-2{
+        margin-right: 35px;
+        
+    }
+
+    .line-3{
+        margin-left: -310px;
+        margin-top: -140px;
+    }
+
+    .content-4{
+        margin-right: 180px;
+    }
+
+    .content-3{
+        margin-right: 30px;
+    }
+   
+
+}
+
+@media (width:1024px){
+    .line-1{
+       margin-top: 300px;
+    }
+
+    .line-2{
+        margin-right: 200px;
+    }
+
+    .content-3{
+        margin-left: 160px;
+        margin-top: 270px;
+        
+    }
+
+    .line-3{
+        margin-left: 300px;
+
+    }
+
+    .content-4{
+        margin-left: 170px;
+    }
+
+    .image11{
+        margin-right: 230px;
+    }
+}
+
+@media (width:280px){
+    .line-1{
+        margin-top: 80px;
+        width: 170px;
+        margin-left: -120px;
+    }
+
+    .tex{
+        font-size: 4px;
+        
+    }
+
+    .image{
+        width: 130px;
+    }
+
+    .image1{
+        width: 100px;
+        height: 120px;
+    }
+
+    .head{
+        font-size: 6px;
+    }
+
+    .line-2{
+        width: 170px;
+        margin-right: 70px;
+    }
+
+    .content-2{
+        margin-left:-120px;
+        margin-top: 60px;
+    }
+
+    .content-4{
+        margin-left: -70px;
+    }
+
+    .line-3{
+        width: 170px;
+        margin-left: -100px;
+    }
+}

@@ -1,0 +1,114 @@
+body {
+    background-image: url(#);
+    background-repeat: no-repeat;
+    background-size: 100vw ;
+    background-color: #8CC7D7;
+    overflow-x: hidden;
+  
+    
+}
+
+
+.content-r{
+    border-radius: 10px;
+    padding: 20px;
+}
+
+.content-l{
+    border-radius: 10px;
+    padding: 20px;
+
+}
+
+.icon-info{
+    margin-top: 10px;
+    text-align: center;
+}
+
+.icon{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.person{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+    border-radius: 10px;
+    height: 100%;
+    margin: 10px;
+    margin-bottom: 50px;
+    margin-top: 20px;
+    
+}
+
+.person-bio{
+    text-align: center;
+}
+
+.person-name{
+    color:#8CC7D7;
+}
+
+@media (width:1024px){
+    .content-r{
+        width: 100%;
+        margin-top: 30px;
+    }
+
+    .content-l{
+        width: 100%;
+        padding: 4px;
+        margin-top: -110px;
+    }
+
+    .hr2{
+        width: 95%;
+        margin: 10px;
+    }
+
+    .line{
+        transform: translate(8px,-40px);
+      
+
+    }
+
+    .vector0{
+        transform: translate(25px,-62px);
+
+    }
+
+    .image1{
+        margin-left: 30px;
+    }
+    
+   
+
+}
+
+@media (width:768px){
+    .line{
+        transform: translate(5px,-30px);
+      
+
+    }
+
+    .vector0{
+        transform: translate(18px,-40px);
+
+    }
+}
+
+@media (width:280px){
+    .header{
+        font-size:10px;
+        margin-top: 40px;
+    }
+
+
+}
