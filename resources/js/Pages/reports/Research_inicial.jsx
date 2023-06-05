@@ -1,19 +1,16 @@
-import { Head } from "@inertiajs/react";
+
 import React from "react";
 import { useState } from 'react'
-import { HiOutlineChevronDown } from "react-icons/hi";
 import { AiOutlineSearch } from "react-icons/ai";
-import { BiFilter } from "react-icons/bi";
 import { router } from '@inertiajs/react'
 import "./style.css";
-import LandingPageLayout from "@/Layouts/LandingPageLayout";
-import Welcome from "@/Components/Nav";
-import GuestLayout from "../../Layouts/GuestLayout";
-import LandingPage from "@/Layouts/LandingPage";
+import AuthenticatedLayout from "@/Layouts/AuthenticatedLayout";
 
 
+import Chart from "../dashboard/Chart";
 
-export default function Consult() {
+export const Data = ({priceCeasa, auth}) => {
+     
   
   const [values, setValues] = useState({
     date_inicial: "",
@@ -33,17 +30,20 @@ export default function Consult() {
   function handleSubmit(e) {
     e.preventDefault()
     console.log(values);
-    router.post('ceasa', values)
+    router.post('researchInicial', values)
   }
 
   return (
 
-   <LandingPage>
+
+
+    <AuthenticatedLayout auth={auth}>
+    <div className="flex lg:flex-col md:flex-col flex-col justify-between">
 
   <form onSubmit={handleSubmit}>
     <div>
-      <div className=" flex flex-col lg:flex-col items-center lg:px-4 m-auto max-w-[343px] h-screen lg:max-w-[1240px] md:max-w-[820px] ">
-        <div className="text-white w-full md:ml-2 flex flex-col ml-4 mt-4 ">
+      <div className=" flex flex-col lg:flex-col items-center lg:px-4 m-auto max-w-[343px] lg:max-w-[1240px] md:max-w-[820px] ">
+        <div className=" w-full md:ml-2 flex flex-col ml-4 mt-4 ">
           <h1 className="lg:text-2xl text-xl font-semibold  ">
             Cotações do Ceasa
           </h1>
@@ -83,7 +83,7 @@ export default function Consult() {
             </div>
           </div>
           <div className="search flex lg:flex-row space-x-5 lg:-mb-[10px] md:flex-row my-4">
-            <div className="feild bg-[#4d982c] Filter justify-start m-auto flex lg:flex-row text-white space-x-2">
+            <div className="feild bg-[#4d982c] Filter  m-auto text-white ">
              {/*  <BiFilter size={20} /> */}
               <button type="submit">Pesquisar</button>
             </div>
@@ -104,12 +104,13 @@ export default function Consult() {
       </div>
     </div>
    
-</form>
-
-
-
-    </LandingPage> 
+  </form>
+  <div>
+       <Chart priceCeasa={priceCeasa} />
+  </div>
+</div>
+</AuthenticatedLayout> 
   );
 }
 
-
+export default Data;

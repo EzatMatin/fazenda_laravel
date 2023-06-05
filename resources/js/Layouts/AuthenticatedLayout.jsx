@@ -38,12 +38,42 @@ export default function Authenticated({ auth, header, children, }) {
                                     method="get"
                                 >
                                     dashboard 
-                                </NavLink>
+                                </NavLink> 
                                 <NavLink
                                     href="weeklyReport"
                                     method="get"
                                 >
                                     Weekly Report
+                                </NavLink>
+
+                                <NavLink href={route('posts.index')} active={route().current('posts.index')}>
+                                    Posts
+                                </NavLink>
+                                
+                                <NavLink
+
+                                    href="tableReport"
+                                    method="get"
+                                >
+                                    Ceasa
+                                
+                                <Link href="lineChart"
+                                    method="get" className="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex" >
+                                   Gráfico Linha
+                                </Link>
+                                
+                                <Link href="barChart"
+                                    method="get" className="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex" >
+                                   Gráfico Barra
+                                </Link>
+
+                                <Link href="inicialReport"
+                                    method="get" className="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex" >
+                                   Pesquisa Inicial
+                                </Link>
+
+
+                                    
                                 </NavLink>
 
                             </div>
@@ -84,7 +114,7 @@ export default function Authenticated({ auth, header, children, }) {
                                         </Dropdown.Link>
                                         <Dropdown.Link
                                             href={route("logout")}
-                                            method="post"
+                                            method="post" 
                                             as="button"
                                         >
                                             Log Out
@@ -187,12 +217,9 @@ export default function Authenticated({ auth, header, children, }) {
                 </header>
             )}
 
-            <main>{children}
+            <main>{children}</main>
             
-            
-            
-            
-            </main>
+
         </div>
     );
 }

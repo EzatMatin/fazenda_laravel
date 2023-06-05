@@ -55,21 +55,109 @@ class Price_ceasaController extends Controller
    
          $query = substr($prepareQuery, 0 , -5);
 
-      // dd($query);
+    // dd($query);
 
         if ($query == False){
             $cotacoes = Price_ceasa_bh::get();
       
-           return Inertia::render('Ceasa/Research',[
-            'priceCeasa' =>  $cotacoes
+            return Inertia::render('reports/TableReport', [
+                'priceCeasa' =>  $cotacoes,
                 ]);   
         }
 
         $cotacoes = Price_ceasa_bh::whereRaw($query)->orderBy('date')->get();
         
-       return Inertia::render('Ceasa/Research',[ 
-            'priceCeasa' =>  $cotacoes
+        return Inertia::render('reports/TableReport', [
+            'priceCeasa' =>  $cotacoes,
                 ]);
+    }
+
+    public function lineChart()
+
+    {
+       $query = 'product LIKE "%pimentao amarelo%"';
+
+       $cotacoes = Price_ceasa_bh::whereRaw($query)->orderBy('date')->get();
+       $cotacoes_json =  $cotacoes->toJson();
+
+           return Inertia::render('reports/LineReport',[
+            'priceCeasa' =>  $cotacoes,
+                ]); 
+        
+
+    }
+
+    public function barChart()
+
+    {
+       $query = 'product LIKE "%pimentao amarelo%"';
+
+       $cotacoes = Price_ceasa_bh::whereRaw($query)->orderBy('date')->get();
+      
+        return Inertia::render('Dashboard',[
+            'priceCeasa' =>  $cotacoes
+                ]); 
+
+    }
+/*
+    public function researchInicial()
+
+    {
+
+       // dd("researchInicial");
+       $query = 'product LIKE "%pimentao amarelo%"';
+
+       $cotacoes = Price_ceasa_bh::whereRaw($query)->orderBy('date')->get();
+
+    //  $last_date = Price_ceasa_bh::whereRaw($query)->get()->MAX('date');
+
+     
+      
+        return Inertia::render('reports/Research_inicial',[
+            'priceCeasa' =>  $cotacoes,
+     //       'last_date' =>  $last_date
+                ]); 
+
+    }
+*/
+    public function dashboard()
+
+    {
+      
+       $query = 'product LIKE "%pimentao amarelo%"';
+
+       $cotacoes = Price_ceasa_bh::whereRaw($query)->orderBy('date')->get();
+   
+        return Inertia::render('Dashboard',[
+            'priceCeasa' =>  $cotacoes
+                ]); 
+    }
+
+    public function tableReport(): Response
+    {
+       // dd("researchInicial..");
+        $cotacoes = [];
+     
+        return Inertia::render('reports/TableReport', [
+            'priceCeasa' =>  $cotacoes,
+
+        ]);
+        
+    }
+
+    public function inicialReport(): Response
+    {
+       // dd("researchInicial");
+        $cotacoes = [];
+        $query = 'product LIKE "%pimentao amarelo%"';
+        $cotacoes = Price_ceasa_bh::whereRaw($query)->orderBy('date')->get();
+
+
+        return Inertia::render('reports/Research_inicial', [
+            'priceCeasa' =>  $cotacoes,
+
+        ]);
+        
     }
 
     public function weeklyReport()
@@ -80,14 +168,53 @@ class Price_ceasaController extends Controller
        $cotacoes = Price_ceasa_bh::whereRaw($query)->orderBy('date')->get();
        $cotacoes_json =  $cotacoes->toJson();
 
-        //   dd($cotacoes,$cotacoes_json);
-       
-/*         $price = Price_ceasa_bh::where('price_min', 'price_max')->first();
-        $data = $price->getData(); */
         
            return Inertia::render('dashboard/Chart',[
             'priceCeasa' =>  $cotacoes/* , $getData */
                 ]);   
 
     }
+
+    public function researchInicial(Request $request)
+    {
+
+       $pesquisa = $request;
+
+     //  dd("aqui researchinicial");
+
+        $termos = $request->only('product', 'date_inicial', 'date_final' );
+        $prepareQuery = "";
+        $query = "";
+        foreach ($termos as $nome => $valor) {
+
+            if($valor){
+              //  $query = $query . "where("."'".$nome."'".","."'"."="."'".","."'". $valor. "')->";
+                if ($nome == "product")
+                    $prepareQuery = $prepareQuery . $nome. ' LIKE "'. '%'.$valor.'%'. '" AND ';                  
+                if ($nome == "date_inicial") 
+                        $prepareQuery = $prepareQuery . 'date'. '>="'. $valor. '" AND ';
+                if ($nome == "date_final")
+                        $prepareQuery = $prepareQuery . 'date'. '<="'. $valor. '" AND ';
+            }
+         }
+   
+         $query = substr($prepareQuery, 0 , -5);
+
+    // dd($query);
+
+        if ($query == False){
+            $cotacoes = Price_ceasa_bh::get();
+      
+            return Inertia::render('reports/Research_inicial', [
+                'priceCeasa' =>  $cotacoes,
+                ]);   
+        }
+
+        $cotacoes = Price_ceasa_bh::whereRaw($query)->orderBy('date')->get();
+        
+        return Inertia::render('reports/Research_inicial', [
+            'priceCeasa' =>  $cotacoes,
+                ]);
+    }
+
 }
