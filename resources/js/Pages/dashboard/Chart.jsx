@@ -1,4 +1,4 @@
-/*  import React from "react";
+  import React from "react";
 import {
     BarChart,
     Bar,
@@ -12,7 +12,7 @@ import {
 
 
 
-function Chart({priceCeasa}) {
+function Chart (props) {
     return (
         <>
             <div className="">
@@ -22,7 +22,7 @@ function Chart({priceCeasa}) {
                             <BarChart
                                 width={500}
                                 height={300}
-                                data={priceCeasa}
+                                data={props.priceCeasa}
                                 margin={{
                                     top: 5,
                                     right: 30,
@@ -47,9 +47,9 @@ function Chart({priceCeasa}) {
 }
 export default Chart;
  
- */
+ 
 
-import React from "react";
+/* import React from "react";
 import { Chart } from "react-google-charts";
 
 /* export const data = ({ priceCeasa }) => {
@@ -60,7 +60,7 @@ import { Chart } from "react-google-charts";
         ["2016", priceCeasa.price_max, priceCeasa.price_min],
         ["2017", priceCeasa.price_max, priceCeasa.price_min],
     ];
-}; */
+}; 
 export const data = 
     [
         ["Year", "Price Max", "price Min"],
@@ -94,3 +94,4 @@ function App() {
 }
 
 export default App;
+ */
