@@ -72,6 +72,12 @@ export default function Authenticated({ auth, header, children, }) {
                                    Pesquisa Inicial
                                 </Link>
 
+                                <NavLink href={route('standards.index')} active={route().current('standards.index')}
+                                className="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex" >
+                                    Standard
+                                </NavLink>
+
+
 
                                     
                                 </NavLink>

@@ -8,7 +8,7 @@ import Post from '@/Components/Post'
 export const Index = ({ auth, posts }) => {
     const { data, setData, post, processing, reset, errors } = useForm({
         title: '',
-        body: ''
+        body: '',
     })
 
     const submit = (e) => {
@@ -17,7 +17,7 @@ export const Index = ({ auth, posts }) => {
         post(route('posts.store'), { onSuccess: () => reset() })
     }
     return (
-
+        <AuthenticatedLayout auth={auth}>
         <><Head title='Posts' /><div className='max-w-2x1 mx-auto p-4 sn:p-6 lg:p-8'>
             <form onSubmit={submit}>
                 <input
@@ -45,11 +45,11 @@ export const Index = ({ auth, posts }) => {
                 </PrimaryButton>
             </form>
             <div className='mt-6 bg-white shadow-sm rounded-lg divide-y'>
-                {posts.map(post => <Post key={post.id} post={post} />
+                {posts.map((post) => <Post key={post.id} post={post} />
                 )}
             </div>
         </div></>
-
+        </AuthenticatedLayout>
 
     )
 }

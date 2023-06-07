@@ -9,10 +9,9 @@ import BarReport from "./dashboard/BarReport";
 
 
 import Chart from "./dashboard/Chart";
-import Index from "./Chats/Index";
+import Post from "./Chats/Index";
 
-export const Data = ({ priceCeasa, auth }) => {
-
+export const Data = ({ priceCeasa, auth , posts}) => {
 
     return (
         <AuthenticatedLayout auth={auth}>
@@ -40,7 +39,8 @@ export const Data = ({ priceCeasa, auth }) => {
                     </div>
                     <div>
                         <div className=" flex m-4  shadow-sm rounded-lg">
-                            <Index />
+                       
+                                    
                         </div>
                     </div>
                 </div>
