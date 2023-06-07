@@ -3,7 +3,7 @@ import ApplicationLogo from "@/Components/ApplicationLogo";
 import Dropdown from "@/Components/Dropdown";
 import NavLink from "@/Components/NavLink";
 import ResponsiveNavLink from "@/Components/ResponsiveNavLink";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { BiHomeAlt2, BiSearch, BiReceipt, BiCard, BiStore, BiChart, BiCheese } from "react-icons/bi";
 
 
 export default function Authenticated({ auth, header, children }) {
@@ -13,8 +13,8 @@ export default function Authenticated({ auth, header, children }) {
     return (
         <div auth={auth} className="min-h-screen flex flex-row   bg-gray-100">
             <div>
-                <nav className="bg-[#8BC83F] text-white  border-b h-full flex flex-col border-gray-100">
-                    <div className=" mx-auto flex flex-col px-4 sm:px-6 lg:px-8">
+                <nav className="bg-[#FBEAC2]  border-b h-full flex flex-col border-gray-100">
+                    <div className=" mx-auto flex flex-col  px-4">
                         <div className="flex flex-col justify-between  ">
                             <div className="flex flex-col ">
                                 <div className="shrink-0 w-[90%] mb-8 mt-4 items-center">
@@ -23,59 +23,65 @@ export default function Authenticated({ auth, header, children }) {
                                     </a>
                                 </div>
 
-                                <div className="space-y-8 sm:flex flex-col">
+                                <div className="space-y-4 sm:flex flex-col">
                                     <NavLink
                                         href="dashboard"
                                         method="get"
-                                        className="hidden space-x-8 sm:flex"
+                                        className="hidden  sm:flex"
                                     >
-                                    
-                                        dashboard
+                                    <BiHomeAlt2 className="m-2" />
+                                         dashboard
                                     </NavLink>
                                     <NavLink
                                         href="weeklyReport"
                                         method="get"
-                                        className="hidden space-x-8 sm:flex"
+                                        className="hidden  sm:flex"
                                     >
+                                        <BiReceipt className="m-2" />
                                         Weekly Report
                                     </NavLink>
 
                                     <NavLink
                                         href={route("posts.index")}
                                         active={route().current("posts.index")}
-                                        className="hidden space-x-8 sm:flex"
+                                        className="hidden  sm:flex"
                                     >
+                                        <BiCard className="m-2"/>
                                         Posts
                                     </NavLink>
 
                                     <NavLink
                                         href="tableReport"
                                         method="get"
-                                        className="hidden space-x-8 sm:flex"
+                                        className="hidden  sm:flex"
                                     >
+                                        <BiStore className="m-2" />
                                         Ceasa
                                     </NavLink>
                                     <NavLink
                                         href="lineChart"
                                         method="get"
-                                        className="hidden space-x-8 sm:flex"
+                                        className="hidden  sm:flex"
                                     >
+                                        <BiCheese className="m-2"/>
                                         Gráfico Linha
                                     </NavLink>
 
                                     <NavLink
                                         href="barChart"
                                         method="get"
-                                        className="hidden space-x-8 sm:flex"
+                                        className="hidden  sm:flex"
                                     >
+                                        <BiChart className="m-2" />
                                         Gráfico Barra
                                     </NavLink>
 
                                     <NavLink
                                         href="inicialReport"
                                         method="get"
-                                        className="hidden space-x-8 sm:flex"
+                                        className="hidden  sm:flex"
                                     >
+                                        <BiSearch className="m-2" />
                                         Pesquisa Inicial
                                     </NavLink>
                                 </div>
