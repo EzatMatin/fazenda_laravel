@@ -4,7 +4,6 @@ use App\Http\Controllers\CeasaController;
 use App\Http\Controllers\Ceasa\Price_ceasaController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\PostController;
-use App\Http\Controllers\Standard\StandardController;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
@@ -54,16 +53,6 @@ Route::middleware('auth')->group(function () {
 });
 
 Route::resource('posts', PostController::class)
-<<<<<<< HEAD
-    ->only(['index','store','update','destroy'])
-    ->middleware(['auth']);
-
-
-   Route::resource('standards', StandardController::class)
-    ->only(['index','create','store','show','update','destroy'])
-    ->middleware(['auth']);
-
-=======
     ->only(['index','store','update','destroy']) 
    ->middleware(['auth']);
 /*
@@ -74,5 +63,4 @@ Route::resource('posts', PostController::class)
     Route::delete('/post', [PostController::class, 'destroy'])->name('post.destroy');
 });
 */
->>>>>>> b19935a47c602f10eb043b345784621dbadb29d2
 require __DIR__.'/auth.php';

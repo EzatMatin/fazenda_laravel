@@ -53,8 +53,6 @@ class PostPolicy
      */
     public function update(User $user, Post $post)
     {
-        
-        dd('aqui police');
         return $post->user()->is($user);
     }
 
