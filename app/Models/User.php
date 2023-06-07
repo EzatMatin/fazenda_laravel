@@ -46,9 +46,4 @@ class User extends Authenticatable
     {
         return $this->hasMany(Post::class);
     }
-
-    public function standards()
-    {
-        return $this->hasMany(Standard::class);
-    }
 }

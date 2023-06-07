@@ -7,15 +7,9 @@ import AuthenticatedLayout from "@/Layouts/AuthenticatedLayout";
 
 export const Index = ({ auth, posts }) => {
     const { data, setData, post, processing, reset, errors } = useForm({
-<<<<<<< HEAD
-        title: '',
-        body: '',
-    })
-=======
         title: "",
         body: "",
     });
->>>>>>> b19935a47c602f10eb043b345784621dbadb29d2
 
     const submit = (e) => {
         e.preventDefault();
@@ -23,14 +17,9 @@ export const Index = ({ auth, posts }) => {
         post(route("posts.store"), { onSuccess: () => reset() });
     };
     return (
-<<<<<<< HEAD
-        <AuthenticatedLayout auth={auth}>
-        <><Head title='Posts' /><div className='max-w-2x1 mx-auto p-4 sn:p-6 lg:p-8'>
-=======
         /*  <AuthenticatedLayout > */ 
         <div auth={auth} className="max-w-2x1 mx-auto">
             <Head title="Posts" />
->>>>>>> b19935a47c602f10eb043b345784621dbadb29d2
             <form onSubmit={submit}>
                 <input
                     value={data.title}
@@ -56,17 +45,6 @@ export const Index = ({ auth, posts }) => {
                     Create
                 </PrimaryButton>
             </form>
-<<<<<<< HEAD
-            <div className='mt-6 bg-white shadow-sm rounded-lg divide-y'>
-                {posts.map((post) => <Post key={post.id} post={post} />
-                )}
-            </div>
-        </div></>
-        </AuthenticatedLayout>
-
-    )
-}
-=======
             <div className=" max-h-[450px] mt-2 overflow-y-scroll bg-white shadow-sm rounded-lg divide-y">
                 {posts ? (
                     posts.map((post) => <Post key={post.id} post={post} />)
@@ -77,6 +55,5 @@ export const Index = ({ auth, posts }) => {
         </div>
     );
 };
->>>>>>> b19935a47c602f10eb043b345784621dbadb29d2
 
 export default Index;
