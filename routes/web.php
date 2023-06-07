@@ -53,7 +53,7 @@ Route::middleware('auth')->group(function () {
 });
 
 Route::resource('posts', PostController::class)
-    ->only(['index','store','update','destroy'])
+    ->only(['index','store','update','destroy']) 
    ->middleware(['auth']);
 /*
  Route::middleware('auth')->group(function () {

@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Ceasa;
 
 use App\Http\Controllers\Controller;
 use App\Models\Price_ceasa_bh;
+use App\Models\Post;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
@@ -91,14 +92,25 @@ class Price_ceasaController extends Controller
 
     {
        $query = 'product LIKE "%pimentao amarelo%"';
-
+       
+       dd($posts);
        $cotacoes = Price_ceasa_bh::whereRaw($query)->orderBy('date')->get();
       
         return Inertia::render('Dashboard',[
-            'priceCeasa' =>  $cotacoes
+            'priceCeasa' =>  $cotacoes,
                 ]); 
 
     }
+
+
+    /* public function index() 
+    { 
+       // $posts = Post::with('user:id,name')->latest()->get();
+       // dd($posts);
+        return Inertia::render('Chats/Index', [
+
+        ]);
+    } */
 /*
     public function researchInicial()
 
@@ -129,7 +141,8 @@ class Price_ceasaController extends Controller
        $cotacoes = Price_ceasa_bh::whereRaw($query)->orderBy('date')->get();
    
         return Inertia::render('Dashboard',[
-            'priceCeasa' =>  $cotacoes
+            'priceCeasa' =>  $cotacoes,
+            'posts' => Post::with('user:id,name')->latest()->get()
                 ]); 
     }
 
