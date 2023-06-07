@@ -86,6 +86,79 @@ export default function Authenticated({ auth, header, children }) {
                                     </NavLink>
                                 </div>
                             </div>
+<<<<<<< HEAD
+
+                            <div className="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                                <NavLink
+
+                                    href="dashboard"
+                                    method="get"
+                                >
+                                    dashboard 
+                                </NavLink> 
+                                <NavLink
+                                    href="weeklyReport"
+                                    method="get"
+                                >
+                                    Weekly Report
+                                </NavLink>
+
+                                <NavLink href={route('posts.index')} active={route().current('posts.index')}>
+                                    Posts
+                                </NavLink>
+                                
+                                <NavLink
+
+                                    href="tableReport"
+                                    method="get"
+                                >
+                                    Ceasa
+                                
+                                <Link href="lineChart"
+                                    method="get" className="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex" >
+                                   Gráfico Linha
+                                </Link>
+                                
+                                <Link href="barChart"
+                                    method="get" className="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex" >
+                                   Gráfico Barra
+                                </Link>
+
+                                <Link href="inicialReport"
+                                    method="get" className="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex" >
+                                   Pesquisa Inicial
+                                </Link>
+
+                                <NavLink href={route('standards.index')} active={route().current('standards.index')}
+                                className="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex" >
+                                    Standard
+                                </NavLink>
+
+
+
+                                    
+                                </NavLink>
+
+                            </div>
+                        </div>
+
+                        <div className="hidden sm:flex sm:items-center sm:ml-6">
+                            <div className="ml-3 relative">
+                                <Dropdown>
+                                    <Dropdown.Trigger>
+                                        <span className="inline-flex rounded-md">
+                                            <button
+                                                type="button"
+                                                className="inline-flex items-center px-3 py-2 border border-transparent text-sm leading-4 font-medium rounded-md text-gray-500 bg-white hover:text-gray-700 focus:outline-none transition ease-in-out duration-150"
+                                            >
+                                                {auth.user.name}
+
+                                                <svg
+                                                    className="ml-2 -mr-0.5 h-4 w-4"
+                                                    xmlns="http://www.w3.org/2000/svg"
+                                                    viewBox="0 0 20 20"
+                                                    fill="currentColor"
+=======
                             <div className=" mt-8 ">
                                 <div className=" dropDwnBtn hidden  sm:flex sm:items-center">
                                     <div className="">
@@ -117,6 +190,7 @@ export default function Authenticated({ auth, header, children }) {
                                             <Dropdown.Content>
                                                 <Dropdown.Link
                                                     href={route("profile.edit")}
+>>>>>>> b19935a47c602f10eb043b345784621dbadb29d2
                                                 >
                                                     Profile
                                                 </Dropdown.Link>

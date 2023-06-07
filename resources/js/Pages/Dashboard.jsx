@@ -5,11 +5,18 @@ import AuthenticatedLayout from "@/Layouts/AuthenticatedLayout";
 
 import PricesOfCeasa from "./dashboard/PricesOfCeasa";
 import Chart from "./dashboard/Chart";
+<<<<<<< HEAD
+import Post from "./Chats/Index";
+
+export const Data = ({ priceCeasa, auth , posts}) => {
+
+=======
 import Index from "./Chats/Index";
 import Title from "./dashboard/Title";
 import List from "./dashboard/productsCard/List";
 
 export function Data({ priceCeasa, auth, posts }) {
+>>>>>>> b19935a47c602f10eb043b345784621dbadb29d2
     return (
         <AuthenticatedLayout auth={auth}>
             <h2 className="font-semibold text-xl text-gray-800 leading-tight">
@@ -38,9 +45,15 @@ export function Data({ priceCeasa, auth, posts }) {
                     </div>
 
                     <div>
+<<<<<<< HEAD
+                        <div className=" flex m-4  shadow-sm rounded-lg">
+                       
+                                    
+=======
                         <div className="bg-white  m-4 p-4   shadow-sm rounded-lg">
                              <Index posts={posts} />  
                          
+>>>>>>> b19935a47c602f10eb043b345784621dbadb29d2
                         </div>
                     </div>
                 </div>
