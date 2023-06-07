@@ -18,7 +18,7 @@ export const Index = ({ auth, posts }) => {
     };
     return (
         /*  <AuthenticatedLayout > */ 
-        <div auth={auth} className="max-w-2x1 mx-auto p-4 sn:p-6 lg:p-8">
+        <div auth={auth} className="max-w-2x1 mx-auto">
             <Head title="Posts" />
             <form onSubmit={submit}>
                 <input
@@ -39,13 +39,13 @@ export const Index = ({ auth, posts }) => {
                 ></textarea>
                 <InputError message={errors.body} className="mt-2" />
                 <PrimaryButton
-                    className="mt-4 text-white bg-gradient-to-br from-purple-600 to-blue-500 hover:bg-gradient-to-bl focus:outline-nome focus:ring-blue-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2"
+                    className="mt-4 text-white  font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2"
                     disabled={processing}
                 >
                     Create
                 </PrimaryButton>
             </form>
-            <div className="mt-6 bg-white shadow-sm rounded-lg divide-y">
+            <div className=" max-h-[450px] mt-2 overflow-y-scroll bg-white shadow-sm rounded-lg divide-y">
                 {posts ? (
                     posts.map((post) => <Post key={post.id} post={post} />)
                 ) : (

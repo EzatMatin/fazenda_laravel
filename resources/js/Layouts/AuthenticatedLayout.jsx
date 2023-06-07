@@ -11,7 +11,7 @@ export default function Authenticated({ auth, header, children }) {
         useState(false);
 
     return (
-        <div className="min-h-screen flex flex-row   bg-gray-100">
+        <div auth={auth} className="min-h-screen flex flex-row   bg-gray-100">
             <div>
                 <nav className="bg-[#8BC83F] text-white  border-b h-full flex flex-col border-gray-100">
                     <div className=" mx-auto flex flex-col px-4 sm:px-6 lg:px-8">
@@ -29,7 +29,7 @@ export default function Authenticated({ auth, header, children }) {
                                         method="get"
                                         className="hidden space-x-8 sm:flex"
                                     >
-                                       
+                                    
                                         dashboard
                                     </NavLink>
                                     <NavLink

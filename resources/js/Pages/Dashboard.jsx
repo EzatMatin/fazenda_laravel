@@ -24,7 +24,7 @@ export function Data({ priceCeasa, auth, posts }) {
                         </div>
                         <div className="flex flex-col lg:flex-row">
                             <div className="bg-white m-4 p-4  shadow-sm rounded-lg">
-                                <List></List>
+                                <List/>
                             </div>
 
                             <div className="bg-white  m-4    shadow-sm rounded-lg">

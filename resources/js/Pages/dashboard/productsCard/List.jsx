@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import pimentao from "./pimentao.jpg";
 import tomate from "./tomate.jpg";
 import batata from "./batata.jpg";
+import PrimaryButton from "@/Components/PrimaryButton";
 
 
 
@@ -39,9 +40,9 @@ const List = () => {
                         </option>
                     ))}
                 </select>
-                <button className="p-4 bg-[#8BC83F] mx-2 rounded-lg " onClick={handleSearch}>
+                <PrimaryButton className="p-4 bg-[#8BC83F] mx-2 rounded-lg " onClick={handleSearch}>
                     Search
-                </button>
+                </PrimaryButton>
             </div>
             {selectedItemImage && (
                 <div>
