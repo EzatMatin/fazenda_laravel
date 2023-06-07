@@ -54,6 +54,7 @@ Route::middleware('auth')->group(function () {
 });
 
 Route::resource('posts', PostController::class)
+<<<<<<< HEAD
     ->only(['index','store','update','destroy'])
     ->middleware(['auth']);
 
@@ -62,4 +63,16 @@ Route::resource('posts', PostController::class)
     ->only(['index','create','store','show','update','destroy'])
     ->middleware(['auth']);
 
+=======
+    ->only(['index','store','update','destroy']) 
+   ->middleware(['auth']);
+/*
+ Route::middleware('auth')->group(function () {
+    Route::get('/post', [PostController::class, 'edit'])->name('post.edit');
+    Route::post('/post', [PostController::class, 'store'])->name('post.store');
+    Route::patch('/post', [PostController::class, 'update'])->name('post.update');
+    Route::delete('/post', [PostController::class, 'destroy'])->name('post.destroy');
+});
+*/
+>>>>>>> b19935a47c602f10eb043b345784621dbadb29d2
 require __DIR__.'/auth.php';
