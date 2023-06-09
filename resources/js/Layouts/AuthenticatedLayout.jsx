@@ -180,6 +180,25 @@ export default function Authenticated({ auth, header, children }) {
                                     </NavLink>
 
                                     <NavLink
+                                        href={route("posts.index")}
+                                        active={route().current("posts.index")}
+                                        className="hidden  sm:flex"
+                                    >
+                                        <BiCard className="m-2"/>
+                                        Posts
+                                    </NavLink>
+
+                                    <NavLink
+                                        href={route("products.index")}
+                                        active={route().current("products.index")}
+                                        className="hidden  sm:flex"
+                                    >
+                                        <BiCard className="m-2"/>
+                                        Produtos
+                                    </NavLink>
+                                    
+
+                                    <NavLink
                                         href="tableReport"
                                         active={route().current("posts.index")}
                                         method="get"

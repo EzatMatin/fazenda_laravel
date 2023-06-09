@@ -15,6 +15,7 @@ function Welcome(props, { children }) {
                             {props.auth.user ? (
                                 <Link
                                     href={route("dashboard")}
+                                    method="post"
                                     className="font-semibold text-black hover:text-gray-900 dark:text-black dark:hover:text-gray-400 focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500"
                                 >
                                     Dashboard

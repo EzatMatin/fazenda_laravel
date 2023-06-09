@@ -12,7 +12,7 @@ export const Data = ({ priceCeasa, auth }) => {
         date_inicial: "",
         date_final: "",
         product: "",
-    });
+    }); 
 
     function handleChange(e) {
         const key = e.target.id;
