@@ -32,7 +32,7 @@ const List = () => {
     return (
         <div className="flex flex-col items-center justify-center ">
             <div className="flex">
-                <select className="p-4  rounded-lg " value={selectedItem} onChange={handleSelectItem}>
+                <select className="  rounded-lg " value={selectedItem} onChange={handleSelectItem}>
                     <option value="">Produto</option>
                     {itemData.map((item) => (
                         <option key={item.id} value={item.value}>
@@ -40,7 +40,7 @@ const List = () => {
                         </option>
                     ))}
                 </select>
-                <PrimaryButton className="p-4 bg-[#8BC83F] mx-2 rounded-lg " onClick={handleSearch}>
+                <PrimaryButton className="ml-2 " onClick={handleSearch}>
                     Search
                 </PrimaryButton>
             </div>
