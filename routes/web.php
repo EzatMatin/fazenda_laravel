@@ -4,6 +4,7 @@ use App\Http\Controllers\CeasaController;
 use App\Http\Controllers\Ceasa\Price_ceasaController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\PostController;
+use App\Http\Controllers\Product\ProductController;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
@@ -33,8 +34,8 @@ Route::get('/blog', function () {
     return Inertia::render('Blog/Blog');
 })->name('blog');
 
-
 Route::get('ceasa', [Price_ceasaController::class, 'consult'])->name('ceasa.consult');
+Route::post('productResearch', [Price_ceasaController::class, 'productResearch'])->name('productResearch');
 Route::post('ceasa', [Price_ceasaController::class, 'research'])->name('ceasa.research');
 Route::get('weeklyReport', [Price_ceasaController::class, 'weeklyReport'])->name('weeklyReport')->middleware('auth');
 Route::get('dashboard/Chart', [Price_ceasaController::class, 'weeklyReport'])->name('Chart')->middleware('auth');
@@ -55,12 +56,11 @@ Route::middleware('auth')->group(function () {
 Route::resource('posts', PostController::class)
     ->only(['index','store','update','destroy']) 
    ->middleware(['auth']);
-/*
- Route::middleware('auth')->group(function () {
-    Route::get('/post', [PostController::class, 'edit'])->name('post.edit');
-    Route::post('/post', [PostController::class, 'store'])->name('post.store');
-    Route::patch('/post', [PostController::class, 'update'])->name('post.update');
-    Route::delete('/post', [PostController::class, 'destroy'])->name('post.destroy');
-});
-*/
+
+Route::resource('products', ProductController::class)
+->only(['index','create','store','show','update','destroy'])
+->middleware(['auth']);
+
+
 require __DIR__.'/auth.php';
+

@@ -2,53 +2,53 @@ import React from "react";
 import InputError from "@/Components/InputError";
 import PrimaryButton from "@/Components/PrimaryButton";
 import { useForm, Head } from "@inertiajs/react";
-import Post from "@/Components/Post";
+import Product from "@/Components/Product";
 import AuthenticatedLayout from "@/Layouts/AuthenticatedLayout";
-import Input from "postcss/lib/input";
 
-export const Index = ({ auth, posts }) => {
+export const Index = ({ auth, products }) => {
     const { data, setData, post, processing, reset, errors } = useForm({
-        title: "",
-        body: "",
+        nome: "",
+        image: "",
     });
 
     const submit = (e) => {
         e.preventDefault();
 
-        post(route("posts.store"), { onSuccess: () => reset() });
+        post(route("products.store"), { onSuccess: () => reset() });
     };
     return (
         /*  <AuthenticatedLayout > */ 
         <div auth={auth} className="max-w-2x1 mx-auto">
-            <Head title="Posts" />
+            <Head title="Produtos" />
             <form onSubmit={submit}>
                 <input
-                    value={data.title}
-                    onChange={(e) => setData("title", e.target.value)}
+                    value={data.nome}
+                    onChange={(e) => setData("nome", e.target.value)}
                     type="text"
-                    placeholder="Title"
+                    placeholder="Nome"
                     autoFocus
                     className="mb-3 block w-full border-gray-300 focus:border-indigo-300 focus-ring focus:ring-indigo-200 focus:rinf-opacity-50 rounded-md shadow-sm"
                 />
-                <InputError message={errors.title} className="mt-2" />
-                <textarea
-                    value={data.body}
-                    onChange={(e) => setData("body", e.target.value)}
-                    type="text"
-                    placeholder="Body"
+                <InputError message={errors.nome} className="mt-2" />
+                <input
+                    value={data.image}
+                    onChange={(e) => setData("image", e.target.value)}
+                    type="file"
+                    placeholder="Imagem"
+                    autoFocus
                     className="block w-full border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 rounded-md shadow-sm"
-                ></textarea>
-                <InputError message={errors.body} className="mt-2" />
+                />
+                <InputError message={errors.image} className="mt-2" />
                 <PrimaryButton
                     className="mt-4 text-white  font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2"
                     disabled={processing}
                 >
-                    Create
+                    Salvar
                 </PrimaryButton>
             </form>
             <div className=" max-h-[450px] mt-2 overflow-y-scroll bg-white shadow-sm rounded-lg divide-y">
-                {posts ? (
-                    posts.map((post) => <Post key={post.id} post={post} />)
+                {products ? (
+                    products.map((product) => <Product key={product.id} product={product} />)
                 ) : (
                     <p>Whats in your mind?</p>
                 )}
