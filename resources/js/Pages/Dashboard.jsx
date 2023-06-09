@@ -9,7 +9,7 @@ import Index from "./Chats/Index";
 import Title from "./dashboard/Title";
 import List from "./dashboard/productsCard/List";
 
-export function Data({ priceCeasa, auth, posts }) {
+export function Data({ priceCeasa, auth, posts, lastDate, lastCotacao, product, productList }) {
     return (
         <AuthenticatedLayout auth={auth}>
             <h2 className="font-semibold text-xl text-gray-800 leading-tight">
@@ -24,11 +24,11 @@ export function Data({ priceCeasa, auth, posts }) {
                         </div>
                         <div className="flex flex-col lg:flex-row">
                             <div className="bg-white m-4 p-4  shadow-sm rounded-lg">
-                                <List/>
+                                <List productLists = {productList}/>
                             </div>
 
                             <div className="bg-white  m-4    shadow-sm rounded-lg">
-                                <PricesOfCeasa price_min="10" />
+                                <PricesOfCeasa lastDate = {lastDate} lastCotacao = {lastCotacao} product = {product}/>
                             </div>
                         </div>
 

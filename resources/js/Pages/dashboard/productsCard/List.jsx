@@ -3,54 +3,59 @@ import pimentao from "./pimentao.jpg";
 import tomate from "./tomate.jpg";
 import batata from "./batata.jpg";
 import PrimaryButton from "@/Components/PrimaryButton";
+import InputError from "@/Components/InputError";
+import { useForm, router } from "@inertiajs/react";
 
+import Input from "postcss/lib/input";
 
+export const List = ({productLists}) => {
 
-const List = () => {
-    const [selectedItem, setSelectedItem] = useState("");
-
-    const itemData = [
-        { id: "pimentao",value: "pimentao", label: "pimentao", image: pimentao },
-        { id: "tomate",value: "tomate", label: "tomate", image: tomate },
-        { id: "batata",value: "datata", label: "batata", image: batata },
+    const [ selectedItem, setSelectedItem , data, setData, post, processing, reset, errors,  ] = useState({
         
-    ];
+        nome: "",
+       
+    });
+
+
+
+  /*   function handleChange(e) {
+        this.setState({value: e.target.value});
+    } */
+
+    const product = selectedItem;
+
+    function handleSubmit(e) {
+        e.preventDefault();
+       
+         router.post("productResearch", product); 
+       
+    }
 
     const handleSelectItem = (event) => {
         setSelectedItem(event.target.value);
     };
 
-    const handleSearch = () => {
-        // Perform search with selectedItem
-        console.log("Selected Item:", selectedItem);
-    };
-
-    const selectedItemImage = itemData.find(
-        (item) => item.value === selectedItem
-    )?.image;
 
     return (
+        <form onSubmit={handleSubmit}> 
         <div className="flex flex-col items-center justify-center ">
             <div className="flex">
                 <select className="p-4  rounded-lg " value={selectedItem} onChange={handleSelectItem}>
-                    <option value="">Produto</option>
-                    {itemData.map((item) => (
-                        <option key={item.id} value={item.value}>
-                            {item.label}
+                    <option >Produto</option>
+                    {productLists.map((productList) => (
+                        <option key={productList.id} value={productList.nome}>
+                            {productList.nome}
                         </option>
                     ))}
                 </select>
-                <PrimaryButton className="p-4 bg-[#8BC83F] mx-2 rounded-lg " onClick={handleSearch}>
+                <button className="p-4 bg-[#8BC83F] mx-2 rounded-lg " >
                     Search
-                </PrimaryButton>
+                </button>
             </div>
-            {selectedItemImage && (
-                <div>
-                    <h3>Selected Item Image:</h3>
-                    <img className="w-40 h-40" src={selectedItemImage} alt={selectedItem} />
-                </div>
-            )}
+
+          
         </div>
+     </form> 
     );
 };
 

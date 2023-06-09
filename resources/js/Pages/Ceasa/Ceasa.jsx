@@ -13,7 +13,7 @@ import LandingPage from "@/Layouts/LandingPage";
 
 
 
-export default function Consult() {
+export default function Consult() { 
   
   const [values, setValues] = useState({
     date_inicial: "",
