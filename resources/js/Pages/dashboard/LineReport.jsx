@@ -1,25 +1,20 @@
 import React from "react";
-import { LineChart,
-    Line, 
+import {
+    LineChart,
+    Line,
     XAxis,
     YAxis,
     CartesianGrid,
     Tooltip,
     Legend,
-    ResponsiveContainer } 
-    from 'recharts';
+    ResponsiveContainer,
+} from "recharts";
 
-const data = ({ priceCeasa }) => {
- 
+function data(props) {
     return (
-      
-        <>      
-        <div className="flex lg:flex-row md:flex-col flex-col justify-between">
-  
+        <ResponsiveContainer width="100%" height={300}>
             <LineChart
-                width={1000}
-                height={500}
-                data={priceCeasa}
+                data={props.priceCeasa}
                 margin={{
                     top: 10,
                     right: 30,
@@ -28,15 +23,14 @@ const data = ({ priceCeasa }) => {
                 }}
             >
                 <CartesianGrid strokeDasharray="3 3" />
-                <XAxis dataKey="date"/>
+                <XAxis dataKey="date" />
                 <YAxis />
                 <Tooltip />
                 <Legend />
                 <Line type="monotone" dataKey="price_min" fill="#ffbf00" />
                 <Line type="monotone" dataKey="price_max" fill="#a52a2a" />
             </LineChart>
-            </div>
-        </>
+        </ResponsiveContainer>
     );
 }
 
