@@ -25,8 +25,8 @@ export default function Authenticated({ auth, header, children }) {
 
                                 <div className="space-y-4 sm:flex flex-col">
                                     <NavLink
-                                        href="dashboard"
-                                        method="get"
+                                        href="mydashboard"
+                                        method="post"
                                         className="hidden  sm:flex"
                                     >
                                     <BiHomeAlt2 className="m-2" />
@@ -205,7 +205,7 @@ export default function Authenticated({ auth, header, children }) {
                         <div className="pt-2 pb-3 space-y-1">
                             <ResponsiveNavLink
                                 href={route("dashboard")}
-                                active={route().current("dashboard")}
+                                active={route().current("dashboard")} 
                             >
                                 Dashboard
                             </ResponsiveNavLink>

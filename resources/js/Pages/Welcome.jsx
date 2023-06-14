@@ -14,7 +14,7 @@ function Welcome(props, { children }) {
                         <div className="flex flex-row justify-between lg:max-w-[1240px]  items-center mx-auto p-4 text-right">
                             {props.auth.user ? (
                                 <Link
-                                    href={route("dashboard")}
+                                    href={route("mydashboard")}
                                     method="post"
                                     className="font-semibold text-black hover:text-gray-900 dark:text-black dark:hover:text-gray-400 focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500"
                                 >

@@ -8,53 +8,48 @@ import { useForm, router } from "@inertiajs/react";
 
 import Input from "postcss/lib/input";
 
-export const List = ({productLists}) => {
+ export const List = () => {
+     
+  
+        const [values, setValues] = useState({
+         
+          product: "",
+        })
 
-    const [ selectedItem, setSelectedItem , data, setData, post, processing, reset, errors,  ] = useState({
-        
-        nome: "",
-       
-    });
-
-
-
-  /*   function handleChange(e) {
-        this.setState({value: e.target.value});
-    } */
-
-    const product = selectedItem;
-
-    function handleSubmit(e) {
-        e.preventDefault();
-       
-         router.post("productResearch", product); 
-       
-    }
-
-    const handleSelectItem = (event) => {
-        setSelectedItem(event.target.value);
-    };
-
+    function handleChange(e) {
+        const key = e.target.id;
+        const value = e.target.value
+        setValues(values => ({
+            ...values,
+            [key]: value,
+        }))
+      }
+    
+      function handleSubmit(e) {
+        e.preventDefault()
+        console.log(values);
+        router.post("dashboard", values)
+      }
+    
 
     return (
         <form onSubmit={handleSubmit}> 
         <div className="flex flex-col items-center justify-center ">
             <div className="flex">
-                <select className="p-4  rounded-lg " value={selectedItem} onChange={handleSelectItem}>
-                    <option >Produto</option>
-                    {productLists.map((productList) => (
-                        <option key={productList.id} value={productList.nome}>
-                            {productList.nome}
-                        </option>
-                    ))}
-                </select>
+            <input
+                type="text"
+                  name="product"
+                  id="product"
+                  value={values.product}
+                  onChange={handleChange}
+                className=" Pesquisar p-0 "
+                placeholder="Pesquisar" />
+            </div>   
                 <button className="p-4 bg-[#8BC83F] mx-2 rounded-lg " >
                     Search
                 </button>
-            </div>
-
-          
-        </div>
+            </div>       
+        
      </form> 
     );
 };

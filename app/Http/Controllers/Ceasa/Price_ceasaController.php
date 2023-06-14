@@ -14,6 +14,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Redirect;
 use Inertia\Inertia;
 use Inertia\Response;
+
 use Illuminate\Support\Arr;
 
 class Price_ceasaController extends Controller
@@ -25,50 +26,71 @@ class Price_ceasaController extends Controller
      *
      * @return void
      */
-    public function __construct()
+    public function __construct(
+
+       // public string $productSelect,
+    )
     {
-        $this->middleware('auth');
-      
+       // $this->middleware('auth'); 
+        
     }
 
-    private $productSelect;
+   // public $productSelect = null;
     
     Public function productResearch(Request $request){
 
-        $this->productSelect = $request;
+       dd($request);
+      
+      $productSelect = $request;
+        
+       dd($productSelect);
 
+      //  dd('aqui');
 
-    //    dd($this->productSelect);
+     // dd($this->productSelect);
 
-        return to_route('dashboard');
+      return to_route('mydashboard');
     }
 
-    public function dashboard()
+    public function mydashboard(Request $request)
 
     {
-       $productList = Product::all();
-       //dd($productList);
 
+     
+
+     // dd($request);
+
+
+       $productList = Product::all();
+    //   $this->productSelect =  "pimentao verde";
+/*
         if ($this->productSelect == null){
             $query = 'product LIKE "%pimentao amarelo%"';
         }else{
-            $query = "'product LIKE '."%". $this->productSelect."%"";
+            $query = 'product LIKE ' .'"'.'%'. $productSelect.'%'.'"';
+           // dd($query);
         }
-      // dd($query);
+    */  // dd($query);
       
-     //  $query = 'product LIKE ". %pimentao amarelo%"';
+       $query = 'product LIKE ". %pimentao amarelo%"';
 
-       $cotacoes = Price_ceasa_bh::whereRaw($query)->orderBy('date')->get(); 
- 
+     //  $cotacoes = Price_ceasa_bh::whereRaw($query)->orderBy('date')->get(); 
+
+       $cotacoes = Price_ceasa_bh::all();
+       
        $lastDate = $cotacoes->last()->date;
 
        $lastCotacao = $cotacoes->last()->price_com;
 
+      //dd($lastCotacao);
+
        $product = $cotacoes->last()->product;
+
+    //   dd($productList);
    
         return Inertia::render('Dashboard',[
             'priceCeasa' =>  $cotacoes,
-            'posts' => Post::with('user:id,name')->latest()->get(),
+         //   'posts' => Post::with('user:id,name')->latest()->get(),
             'lastDate' => $lastDate,
             'lastCotacao' => $lastCotacao,
             'product' => $product,

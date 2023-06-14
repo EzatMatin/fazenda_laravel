@@ -6,6 +6,7 @@ use Laravel\Sanctum\HasApiTokens;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use App\Models\Product;
 
 class Price_ceasa_bh extends Model
 {
@@ -37,6 +38,11 @@ class Price_ceasa_bh extends Model
     public function getDateAttribute($value)
      {
          return Carbon::parse($value)->format('d/m/Y');
+     }
+
+     public function product()
+     {
+         return $this->belongsTo(product::class);
      }
 
 
