@@ -33,6 +33,7 @@
         "react-google-charts": "^4.0.0",
         "react-icons": "^4.9.0",
         "react-paginate": "^8.2.0",
+        "react-router-dom": "^6.12.1",
         "recharts": "^2.5.0"
     }
 }
