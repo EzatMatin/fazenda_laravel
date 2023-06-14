@@ -1,20 +1,24 @@
 
-import { useForm, usePage } from "@inertiajs/react";
-import { router } from '@inertiajs/react'
 
-export const Home = () => {
-   
+import React, { useEffect } from 'react';
 
-    const onLoad = (e) => {
-      e.preventDefault()
-        console.log(values);
-        router.post('researchInicial', values)
+const Home = () => {
+  useEffect(() => {
+    const delayTime = 1; // Set the desired delay time in milliseconds
+
+    const redirectTimeout = setTimeout(() => {
+      window.location.href = "/dashboard"; // Replace with your Laravel route URL
+    }, delayTime);
+
+    return () => {
+      clearTimeout(redirectTimeout);
     };
-    return (
+  }, []);
 
-    <div>
-      <h1>Redirecting...</h1>
-      <p>You will be redirected shortly.</p>
+  return (
+    <div className="flex justify-center items-center h-screen">
+      <div className="animate-spin rounded-full h-16 w-16 border-t-4 border-b-4 border-gray-900"></div>
+
     </div>
   );
 };

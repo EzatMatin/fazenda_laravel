@@ -87,6 +87,7 @@ class Price_ceasaController extends Controller
        $product = $cotacoes->last()->product;
 
     //   dd($productList);
+      // dd($cotacoes);
    
         return Inertia::render('Dashboard',[
             'priceCeasa' =>  $cotacoes,

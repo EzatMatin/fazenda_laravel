@@ -18,12 +18,12 @@ Route::get('/', function () {
         'phpVersion' => PHP_VERSION,
     ]);
 })->name('/');
-
+/*
 Route::get('/dashboard', function () {
    return Inertia::render('Dashboard');
 })->name('dashboard');
-
-Route::post('mydashboard', [Price_ceasaController::class, 'mydashboard'])->name('mydashboard');
+*/
+Route::get('mydashboard', [Price_ceasaController::class, 'mydashboard'])->name('mydashboard');
 
 
 Route::get('/historia', function () {
