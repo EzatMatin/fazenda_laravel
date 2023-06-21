@@ -24,11 +24,12 @@ Route::get('/dashboard', function () {
 })->name('dashboard');
 */
 Route::get('/dashboard', [Price_ceasaController::class, 'dashboard'])->name('dashboard');
+Route::get('/search', [Price_ceasaController::class, 'search'])->name('search');
 
 
-Route::get('/historia', function () {
-    return Inertia::render('Historia/Historia');
-})->name('historia');
+/*  Route::get('/search', function () {
+    return Inertia::render('dashboard/LineReportExpanded');
+})->name('search');  */
 
 Route::get('/blog', function () {
     return Inertia::render('Blog/Blog');

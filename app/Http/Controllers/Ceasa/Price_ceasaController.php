@@ -43,6 +43,7 @@ class Price_ceasaController extends Controller
         return to_route('dashboard');
     }
 
+
     public function dashboard()
 
     {
@@ -68,6 +69,42 @@ class Price_ceasaController extends Controller
       // dd($cotacoes);
    
         return Inertia::render('Dashboard',[
+            'priceCeasa' =>  $cotacoes,
+            'posts' => Post::with('user:id,name')->latest()->get(),
+            'lastDate' => $lastDate,
+            'lastCotacao' => $lastCotacao,
+            'product' => $product,
+            'productList'=> $productList,
+             ]); 
+    }
+
+
+
+    public function search()
+
+    {
+       $productList = Product::all();
+       //dd($productList);
+
+        if ($this->productSelect == null){
+            $query = 'product LIKE "%pimentao amarelo%"';
+        }else{
+            $query = "'product LIKE '."%". $this->productSelect."%"";
+        }
+      // dd($query);
+      
+     //  $query = 'product LIKE ". %pimentao amarelo%"';
+
+       $cotacoes = Price_ceasa_bh::whereRaw($query)->orderBy('date')->get(); 
+ 
+       $lastDate = $cotacoes->last()->date;
+
+       $lastCotacao = $cotacoes->last()->price_com;
+
+       $product = $cotacoes->last()->product;
+      // dd($cotacoes);
+   
+        return Inertia::render('dashboard/LineReportExpanded',[
             'priceCeasa' =>  $cotacoes,
             'posts' => Post::with('user:id,name')->latest()->get(),
             'lastDate' => $lastDate,
@@ -234,7 +271,7 @@ class Price_ceasaController extends Controller
 
        $pesquisa = $request;
 
-      dd($pesquisa);
+     // dd($pesquisa);
 
         $termos = $request->only('product', 'date_inicial', 'date_final' );
         $prepareQuery = "";
