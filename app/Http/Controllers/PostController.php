@@ -14,7 +14,7 @@ class PostController extends Controller
     { 
        // $posts = Post::with('user:id,name')->latest()->get();
        // dd($posts);
-        return Inertia::render('Chats/Index', [
+        return Inertia::render('Dashboard', [
             'posts' => Post::with('user:id,name')->latest()->get()
 
         ]);
@@ -23,7 +23,6 @@ class PostController extends Controller
     public function store(Request $request)
     {
         $validated = $request->validate([
-            'title' => 'required|string|max:100',
             'body' => 'required|string|max:255'
         ]);
         $query = 'product LIKE "%pimentao amarelo%"';
@@ -31,12 +30,13 @@ class PostController extends Controller
         $cotacoes = Price_ceasa_bh::whereRaw($query)->orderBy('date')->get();
              //  dd($cotacoes);
 
-        return Inertia::render('Dashboard',[
+       /*  return Inertia::render("Dashboard",[
             'priceCeasa' =>  $cotacoes,
 
             'posts' => Post::with('user:id,name')->latest()->get()
-                ]); 
-        
+                ]); */ 
+                return redirect()->back();
+
     }
 
     public function update(Request $request, Post $post)
@@ -44,13 +44,12 @@ class PostController extends Controller
         $this->authorize('update', $post);
 
         $validated = $request->validate([
-            'title' => 'required|string|max:100',
             'body' => 'required|string|max:255',
         ]);
 
         $post->update($validated);
 
-        return redirect(route('posts.index'));
+        return redirect()->back();
 
     }
        
@@ -60,6 +59,6 @@ class PostController extends Controller
 
         $post->delete();
 
-        return redirect(route('posts.index'));
+        return redirect()->back();
     }
 }

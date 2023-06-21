@@ -11,7 +11,6 @@ export const Post = ({ post }) => {
     const { auth } = usePage().props;
     const [editing, setEditing] = useState(false);
     const { data, setData, patch, processing, reset, errors } = useForm({
-        title: post.title,
         body: post.body,
     });
 
@@ -22,8 +21,7 @@ export const Post = ({ post }) => {
         });
     };
     return (
-        <div className="p-5 flex space-x-2">
-            
+        <div className="p-5 flex space-x-2"> 
             <div className="flex-1">
                 <div className="flex justify-between itens-center">
                     <div>
@@ -74,13 +72,7 @@ export const Post = ({ post }) => {
                 </div>
                 {editing ? (
                     <form onSubmit={submit}>
-                        <input
-                            value={data.title}
-                            onChange={(e) => setData("title", e.target.value)}
-                            type="text"
-                            autoFocus
-                            className="mb-3 block w-full border-gray-300 focus:border-indigo-300 focus-ring focus:ring-indigo-200 focus:rinf-opacity-50 rounded-md shadow-sm"
-                        />
+                    
                         <textarea
                             value={data.body}
                             onChange={(e) => setData("body", e.target.value)}
@@ -100,7 +92,6 @@ export const Post = ({ post }) => {
                     </form>
                 ) : (
                     <>
-                        <p className="mt-4 text-lg text-black">{post.title}</p>
                         <p className="mt-4 text-black">{post.body}</p>
                     </>
                 )}

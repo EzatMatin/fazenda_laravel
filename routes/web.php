@@ -46,7 +46,7 @@ Route::post('research', [Price_ceasaController::class, 'research'])->name('ceasa
 Route::get('lineChart', [Price_ceasaController::class, 'lineChart'])->name('lineChart');
 Route::get('barChart', [Price_ceasaController::class, 'barChart'])->name('barChart');
 Route::get('inicialReport', [Price_ceasaController::class, 'inicialReport'])->name('inicialReport');
-Route::post('researchInicial', [Price_ceasaController::class, 'researchInicial'])->name('researchInicial');
+Route::post('search', [Price_ceasaController::class, 'researchInicial'])->name('search');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');

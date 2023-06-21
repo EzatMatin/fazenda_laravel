@@ -11,7 +11,6 @@ import {
 
 export const Index = ({ auth, posts }) => {
     const { data, setData, post, processing, reset, errors } = useForm({
-        title: "",
         body: "",
     });
 
