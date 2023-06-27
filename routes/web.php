@@ -23,13 +23,8 @@ Route::get('/dashboard', function () {
    return Inertia::render('Dashboard');
 })->name('dashboard');
 */
-<<<<<<< HEAD
-Route::get('mydashboard', [Price_ceasaController::class, 'mydashboard'])->name('mydashboard');
-=======
 Route::get('/dashboard', [Price_ceasaController::class, 'dashboard'])->name('dashboard');
 Route::get('/search', [Price_ceasaController::class, 'search'])->name('search');
->>>>>>> ee4a7bfee60673656826a5456f510b5392b3360d
-
 
 /*  Route::get('/search', function () {
     return Inertia::render('dashboard/LineReportExpanded');

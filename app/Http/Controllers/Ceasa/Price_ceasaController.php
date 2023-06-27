@@ -52,12 +52,9 @@ class Price_ceasaController extends Controller
       return to_route('mydashboard');
     }
 
-<<<<<<< HEAD
-    public function mydashboard(Request $request)
-=======
+
 
     public function dashboard()
->>>>>>> ee4a7bfee60673656826a5456f510b5392b3360d
 
     {
 
