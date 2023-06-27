@@ -1,15 +1,10 @@
 import React from "react";
-import { useForm, Head, Link } from "@inertiajs/react";
-import Post from "@/Components/Post";
-import AuthenticatedLayout from "@/Layouts/AuthenticatedLayout";
-
-import PricesOfCeasa from "./dashboard/PricesOfCeasa";
-import Chart from "./dashboard/Chart";
-import Index from "./Chats/Index";
-import Title from "./dashboard/Title";
-import List from "./dashboard/productsCard/List";
+import PricesOfCeasa from "./PricesOfCeasa";
+import Chart from "./Chart";
+import Index from "../Chats/Index";
+import List from "./productsCard/List";
 import LandingPage from "@/Layouts/LandingPage";
-import LineReport from "./dashboard/LineReport";
+import Research_inicial from "@/Pages/reports/Research_inicial";
 
 export function Data({
     priceCeasa,
@@ -27,18 +22,15 @@ export function Data({
             </h2>
 
             <div className="py-12">
-                <div className=" flex lg:flex-row md:flex-col flex-col  mx-auto sm:px-6 lg:px-8">
+                <div className=" flex flex-col  mx-auto sm:px-6 lg:px-8">
                     <div className="flex flex-col">
-                        <div className="bg-white m-2 p-4  shadow-md rounded-lg">
-                            <Title user={auth.user.name} />
-                        </div>
-
+                        <div className="flex flex-col lg:flex-row">
                         <div className="flex flex-row lg:flex-row">
                             <div className="bg-white m-2 p-4  shadow-md rounded-lg">
                                 <List productLists={productList} />
                             </div>
 
-                            <div className="bg-white w-full  m-2    shadow-md rounded-lg">
+                            <div className="bg-white  m-2    shadow-md rounded-lg">
                                 <PricesOfCeasa
                                     lastDate={lastDate}
                                     lastCotacao={lastCotacao}
@@ -46,20 +38,13 @@ export function Data({
                                 />
                             </div>
                         </div>
-
-                        <div className="bg-white  m-2 p-4   shadow-md rounded-lg">
-                            <LineReport priceCeasa={priceCeasa} />
+                        <div className="bg-white  m-2    shadow-md rounded-lg">
+                            <Research_inicial></Research_inicial>
                         </div>
-                        <Link
-                        href={route("search")}
-                        method="get"
-                        
-                        
-                        >
-                            <div className="bg-white  m-2 p-4   shadow-md rounded-lg">
-                                <Chart priceCeasa={priceCeasa} />
-                            </div>
-                        </Link>
+                        </div>
+                        <div className="bg-white  m-2 p-4   shadow-md rounded-lg">
+                            <Chart priceCeasa={priceCeasa} />
+                        </div>
                     </div>
 
                     <div>

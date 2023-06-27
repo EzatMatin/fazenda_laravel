@@ -79,13 +79,13 @@ export const List = ({ productLists }) => {
         setSelectedItem(event.target.value);
     };
     const selectedItemImage = productLists.find(
-        (item) => productList.value === selectedItem
+        (productList) => productList.value === selectedItem
     )?.image;
 
     return (
         <form onSubmit={handleSubmit}>
-            <div className="flex flex-col items-center justify-center ">
-                <div className="flex">
+            <div className="flex items-center  text-sm justify-center ">
+                <div className="flex  lg:flex-row md:flex-col flex-col ">
                     <select
                         className="  rounded-lg "
                         value={selectedItem}
@@ -101,14 +101,13 @@ export const List = ({ productLists }) => {
                             </option>
                         ))}
                     </select>
-                    <button className="p-2 bg-[#8BC83F] mx-2 rounded-lg ">
+                    <PrimaryButton className="m-2">
                         Search
-                    </button>
+                    </PrimaryButton>
                 </div>
 
                 {selectedItemImage && (
                     <div>
-                        <h3>Selected Item Image:</h3>
                         <img src={selectedItemImage} alt={selectedItem} />
                     </div>
                 )}

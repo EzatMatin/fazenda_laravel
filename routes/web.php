@@ -23,12 +23,17 @@ Route::get('/dashboard', function () {
    return Inertia::render('Dashboard');
 })->name('dashboard');
 */
+<<<<<<< HEAD
 Route::get('mydashboard', [Price_ceasaController::class, 'mydashboard'])->name('mydashboard');
+=======
+Route::get('/dashboard', [Price_ceasaController::class, 'dashboard'])->name('dashboard');
+Route::get('/search', [Price_ceasaController::class, 'search'])->name('search');
+>>>>>>> ee4a7bfee60673656826a5456f510b5392b3360d
 
 
-Route::get('/historia', function () {
-    return Inertia::render('Historia/Historia');
-})->name('historia');
+/*  Route::get('/search', function () {
+    return Inertia::render('dashboard/LineReportExpanded');
+})->name('search');  */
 
 Route::get('/blog', function () {
     return Inertia::render('Blog/Blog');
@@ -45,7 +50,7 @@ Route::post('research', [Price_ceasaController::class, 'research'])->name('ceasa
 Route::get('lineChart', [Price_ceasaController::class, 'lineChart'])->name('lineChart');
 Route::get('barChart', [Price_ceasaController::class, 'barChart'])->name('barChart');
 Route::get('inicialReport', [Price_ceasaController::class, 'inicialReport'])->name('inicialReport');
-Route::post('researchInicial', [Price_ceasaController::class, 'researchInicial'])->name('researchInicial');
+Route::post('search', [Price_ceasaController::class, 'researchInicial'])->name('search');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');

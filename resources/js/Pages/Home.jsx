@@ -18,7 +18,11 @@ const Home = () => {
   return (
     <div className="flex justify-center items-center h-screen">
       <div className="animate-spin rounded-full h-16 w-16 border-t-4 border-b-4 border-gray-900"></div>
+<<<<<<< HEAD
 
+=======
+      
+>>>>>>> ee4a7bfee60673656826a5456f510b5392b3360d
     </div>
   );
 };

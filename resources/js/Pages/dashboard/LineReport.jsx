@@ -12,13 +12,13 @@ import {
 
 function data(props) {
     return (
-        <ResponsiveContainer width="100%" height={300}>
+        <ResponsiveContainer width="100%" height={200}>
             <LineChart
                 data={props.priceCeasa}
                 margin={{
-                    top: 10,
-                    right: 30,
-                    left: 20,
+                    top: 5,
+                    right: 5,
+                    left: 5,
                     bottom: 5,
                 }}
             >
